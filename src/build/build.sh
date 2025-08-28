@@ -72,4 +72,4 @@ apt-get install -y --quiet --no-install-recommends \
 installAGS
 
 # Set zsh as the default shell
-chsh -s $(which zsh)
+# chsh -s $(which zsh)
