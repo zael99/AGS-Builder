@@ -67,7 +67,7 @@ installAGSDependencies() {(
 )}
 
 # Install Terminal Customizations
-dnf update
+dnf update -y
 
 # Install base dependencies
 dnf install -y \
