@@ -58,6 +58,7 @@ installAGSDependencies() {(
         gtk4-layer-shell-devel \
         gobject-introspection-devel
         ninja \
+        go \
         golang \
         vala \
         valac \
