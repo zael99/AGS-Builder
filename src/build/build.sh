@@ -27,6 +27,7 @@ installAstal() {(
     meson install -C build
 
     #Cleanup Astal Build
+    cd ~
     rm -rf /tmp/*
 )}
 
@@ -44,27 +45,33 @@ installAGS() {(
     rm -rf /tmp/*
 )}
 
+installAGSDependencies() {(
+    dnf install -y \
+        gjs \
+        gjs-devel \
+        gtk4-devel \
+        meson \
+        npm \
+        gtk3-devel \
+        gtk-layer-shell-devel \
+        gtk4-devel \
+        gtk4-layer-shell-devel \
+        gobject-introspection-devel
+        ninja \
+        golang \
+        vala \
+        valadoc \
+        wayland-protocols-devel
+)}
+
 # Install Terminal Customizations
 dnf update
 
+# Install base dependencies
 dnf install -y \
+    git \
     zsh \
-    fish \
-    gjs \
-    gjs-devel \
-    gtk4-devel \
-    meson \
-    npm \
-    gtk3-devel \
-    gtk-layer-shell-devel \
-    gtk4-devel \
-    gtk4-layer-shell-devel \
-    gobject-introspection-devel
-    ninja \
-    golang \
-    vala \
-    valadoc \
-    wayland-protocols-devel
+    fish
 
 installAstal
 installAGS
