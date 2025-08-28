@@ -31,12 +31,6 @@ installAstal() {(
 )}
 
 installAGS() {(
-    #installGnim
-
-    installAstal
-
-    dnf install -y \
-
     git clone --recurse-submodules https://github.com/aylur/ags /tmp/ags
 
     # Build AGS
@@ -56,7 +50,7 @@ dnf update
 dnf install -y \
     zsh \
     fish \
-    gjs
+    gjs \
     gjs-devel \
     gtk4-devel \
     meson \
@@ -72,6 +66,7 @@ dnf install -y \
     valadoc \
     wayland-protocols-devel
 
+installAstal
 installAGS
 
 # Set zsh as the default shell
