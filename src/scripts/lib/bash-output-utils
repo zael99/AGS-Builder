@@ -1,0 +1,52 @@
+# ====== Text Colours ====== #
+ERROR_COLOUR="\033[31m"
+SUCCESS_COLOUR="\033[32m"
+INFO_COLOUR="\033[36m"
+RESET_COLOUR="\033[0m"
+# ====== Text Colours ====== #
+
+# ====== Output ====== #
+function print_info {
+    local message=$1
+    echo -e "${INFO_COLOUR}INFO:${RESET_COLOUR} $message"
+}
+
+function print_error {
+    local message=$1
+    local error_code=$2
+
+    echo -e "${ERROR_COLOUR}ERROR:${RESET_COLOUR} $message (${error_code})"
+}
+
+function print_success {
+    local message=$1
+    echo -e "${SUCCESS_COLOUR}SUCCESS:${RESET_COLOUR} $message"
+}
+# ====== Output ====== #
+
+# ====== Exit Script Handlers ====== #
+function exit_script_error {
+    local exit_message=${1:-"Encountered unknown error"}
+    local error_code=${2:-"99"}
+
+    print_error "Exiting with error: ${exit_message}." "${error_code}"
+
+    exit 1
+}
+
+function exit_script_success {
+    local exit_message=$1
+
+    print_success "${exit_message}"
+
+    exit 0
+}
+
+function exit_script {
+    local exit_message=$1
+
+    print_info "${exit_message}"
+
+    exit 0
+}
+# ====== Exit Script Handlers ====== #

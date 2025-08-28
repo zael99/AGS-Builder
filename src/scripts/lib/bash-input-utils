@@ -1,0 +1,63 @@
+function check_input {
+    local input=$1
+    shift
+    local valid_values=$@
+
+    # We don't have any valid values just check for any input
+    if (( ${#valid_values[@]} <= 0 )); then
+
+        # No input continue to next input loop
+        if [[ "${input}" == "" ]]; then
+            echo "false"
+            return 0
+        fi
+
+        # Valid
+        echo "true"
+        return 0
+    fi
+
+    # Check valid_values array
+    for value in "${valid_values[@]}"; do
+        if [[ $value == $user_input ]]; then
+            # Valid
+            echo "true"
+            return 0
+        fi
+    done
+
+    echo "false"
+    return 0
+}
+
+function get_user_input {
+    local output=$1
+    shift
+    local message=$1
+    shift
+    local valid_values=($@)
+
+    local user_input=""
+
+    while true; do
+        echo -n "$message: "
+        read -r user_input
+
+        echo "${user_input}"
+    for value in "${valid_values[@]}"; do
+            echo "'${value}'"
+    done
+
+        local validity=$(check_input $user_input $valid_values)
+
+        # Valid input. Break out of input loop
+        if [[ $validity == "true" ]]; then
+            break
+        fi
+
+        print_error "Invalid input: $user_input"
+    done
+
+    eval "$output='$user_input'"
+    return 0
+}
