@@ -72,7 +72,8 @@ dnf install -y \
     git \
     zsh \
     fish
-
+    
+installAGSDependencies
 installAstal
 installAGS
 
