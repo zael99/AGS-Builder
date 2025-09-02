@@ -47,7 +47,6 @@ installAGS() {(
 
 installAGSDependencies() {(
     dnf install -y \
-        libvala-devel \
         gjs \
         gjs-devel \
         gtk4-devel \
@@ -57,11 +56,12 @@ installAGSDependencies() {(
         gtk-layer-shell-devel \
         gtk4-devel \
         gtk4-layer-shell-devel \
-        gobject-introspection-devel
+        gobject-introspection-devel \
         ninja \
         go \
         golang \
         vala \
+        valac \
         wayland-protocols-devel
 )}
 
