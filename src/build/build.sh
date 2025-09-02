@@ -47,6 +47,7 @@ installAGS() {(
 
 installAGSDependencies() {(
     dnf install -y \
+        libvala-devel \
         gjs \
         gjs-devel \
         gtk4-devel \
