@@ -47,6 +47,7 @@ installAGS() {(
 
 installAGSDependencies() {(
     dnf install -y \
+        sass \
         gjs \
         gjs-devel \
         gtk4-devel \
