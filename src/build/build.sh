@@ -62,6 +62,7 @@ installAGSDependencies() {(
         golang \
         vala \
         valac \
+        valadoc \
         wayland-protocols-devel
 )}
 
