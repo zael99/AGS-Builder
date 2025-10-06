@@ -2,7 +2,7 @@
 FROM scratch AS ctx
 COPY ./src/build /
 
-FROM fedora:latest
+FROM archlinux:latest
 
 COPY ./src/scripts /usr
 
