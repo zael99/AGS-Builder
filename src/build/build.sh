@@ -1,13 +1,17 @@
 #!/usr/bin/env bash
 
-# Install Terminal Customizations
-pacman -Syu --noconfirm \
-    git \
+pacman -Syu --noconfirm
+
+pacman -S --noconfirm --needed base-devel git
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si --noconfirm
+
+pacman -S --noconfirm --needed \
     zsh \
     fish \
     npm \
-    sass \
-    yay
+    sass
 
 yay -Syu libastal-meta aylurs-gtk-shell-git
 
