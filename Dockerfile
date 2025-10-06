@@ -2,15 +2,17 @@
 FROM scratch AS ctx
 COPY ./src/build /
 
-FROM archlinux:latest
+FROM archlinux/archlinux:latest
 
 COPY ./src/scripts /usr
 
+# Install Git
 RUN pacman -Syu --needed --noconfirm git
 
 # makepkg user and workdir
 ARG user=makepkg
 RUN useradd --system --create-home $user \
+  && touch /etc/sudoers.d/$user \
   && echo "$user ALL=(ALL:ALL) NOPASSWD:ALL" > /etc/sudoers.d/$user
 USER $user
 WORKDIR /home/$user
