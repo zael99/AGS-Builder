@@ -1,18 +1,24 @@
 #!/usr/bin/env bash
 
+echo "UPDATING"
 pacman -Syu --noconfirm
 
+echo "INSTALLING GIT"
 pacman -S --noconfirm --needed base-devel git
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si --noconfirm
 
+echo "BUILDING YAY"
+git clone https://aur.archlinux.org/yay-bin.git
+cd yay-bin
+makepkg -si
+
+echo "INSTALLING DEPENDENCIES"
 pacman -S --noconfirm --needed \
     zsh \
     fish \
     npm \
     sass
 
+echo "INSTALLING AGS"
 yay -Syu libastal-meta aylurs-gtk-shell-git
 
 # paccache -r
