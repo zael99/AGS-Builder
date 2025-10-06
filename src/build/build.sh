@@ -1,17 +1,16 @@
 #!/usr/bin/env bash
 
 # Install Terminal Customizations
-pacman -Syu git \
+pacman -Syuc git \
             zsh \
             fish \
             npm \
             sass \
             yay
 
-yay -S libastal-meta
-yay -S aylurs-gtk-shell-git
+yay -Syu libastal-meta aylurs-gtk-shell-git
 
-paccache -r
+# paccache -r
 
 # Set zsh as the default shell
 # chsh -s $(which zsh)
