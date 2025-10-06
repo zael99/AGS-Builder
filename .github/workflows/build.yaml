@@ -1,7 +1,7 @@
 name: Create AGS Docker Builder
 on:
-  schedule:
-    - cron: '17 01 * * *'  # 01:17am UTC everyday
+  #schedule:
+  #  - cron: '17 01 * * *'  # 01:17am UTC everyday
   workflow_dispatch:
 
 # Defines two custom environment variables for the workflow. These are used for the Container registry domain, and a name for the Docker image that this workflow builds.
